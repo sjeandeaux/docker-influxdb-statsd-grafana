@@ -1,6 +1,15 @@
-= TODO
+# Docker - Influxdb - Statsd - Grafana
 
-ISSUE => Docker-compose with 3 dockers:
-* influxdb
-* statsd
-* grafana
+## Build image
+
+```shell
+make build
+```
+
+## Run with supervisord
+
+### Basically
+
+```shell
+make run
+```
