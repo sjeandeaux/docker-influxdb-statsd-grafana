@@ -41,7 +41,7 @@ RUN yum clean all
 VOLUME ["/var/log/supervisor", "/opt/influxdb/shared/data", "/var/lib/grafana", "/var/log/grafana"]
 
 # EXPOSE PORT GRAPHITE, ADMIN, API
-EXPOSE 2003 3000 8083 8086
+EXPOSE 2003 3000 8083 8086 8125/udp
 
 #script init
 ADD init.sh /opt/monitoring/init.sh

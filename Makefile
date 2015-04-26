@@ -21,11 +21,9 @@ exec:
 run:
 	docker run -d --name $(littleName) $(publish) $(tag)
 
-sendValue = echo "local.grafana.devil $1 `date +%s`" | nc $(host) 2003
 
-send:
-	$(call sendValue,666)
-	$(call sendValue,555)
-	$(call sendValue,655)
-	$(call sendValue,755)
-	$(call sendValue,555)
+send-graphite:
+	echo "graphite.local.grafana.devil $1 `date +%s`" | nc $(host) 2003
+
+send-statsd:
+	echo "statsd.local.grafana.devil:666|c" | nc -u -w0 $(host) 8125
