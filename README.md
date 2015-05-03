@@ -19,7 +19,9 @@ make send-graphite
 make send-statsd
 
 #if you like command line
+
 host=$(if [ -n "$(which boot2docker)" ]; then boot2docker ip; else echo 127.0.0.1; fi)
+
 echo "graphite.local.grafana.devil $1 `date +%s`" | nc $host 2003
 echo "statsd.local.grafana.devil:666|c" | nc -u -w0 $host 8125
 
